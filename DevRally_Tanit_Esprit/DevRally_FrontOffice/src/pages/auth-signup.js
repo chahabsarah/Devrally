@@ -37,7 +37,7 @@ export default function Signup() {
             const response = await axios.post('http://localhost:3000/user/register', formData);
             setSuccessMessage(response.data.message);
             setError(null);
-            setTimeout(() => navigate('/auth-login'), 2000);  // Redirect after success
+            setTimeout(() => navigate('/verif-email'), 2000);  // Redirect after success
         } catch (err) {
             setError(err.response?.data?.message || 'An error occurred');
             setSuccessMessage('');

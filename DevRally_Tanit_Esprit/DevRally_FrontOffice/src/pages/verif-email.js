@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import bgImg from "../assets/images/bg1.jpg";
 import logo from "../assets/images/devrally.png";
 
@@ -8,6 +8,7 @@ export default function VerifEmail() {
     const [code, setVerificationCode] = useState("");
     const [error, setError] = useState(null);
     const [successMessage, setSuccessMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,6 +35,8 @@ export default function VerifEmail() {
             const data = await response.json();
             setSuccessMessage(data.message);
             setError(null); // Clear any previous errors
+            setTimeout(() => navigate('/auth-login'), 2000);  // Redirect after success
+
         } catch (error) {
             setError(error.message);
             setSuccessMessage(""); // Clear any previous success messages

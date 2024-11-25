@@ -196,7 +196,6 @@ var mailOptions = {
    color:#fff;padding:10px 20px;text-decoration:none;border-radius:5px;"
    >Réinitialiser le mot de passe</a>
    <br />  <br />  <br />  <br />  <br />
-   <img src="https://www.dropbox.com/s/okntir3yovac85uc2y6k0/originlogo.svg?dl=1" alt="logo" />
    `,
 
 };

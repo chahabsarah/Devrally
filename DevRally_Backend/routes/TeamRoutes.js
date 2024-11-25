@@ -70,7 +70,6 @@ router.post('/teams', upload.single('image'), async (req, res) => {
     res.status(500).send(error.message);
   }
 });
-
 function sendInvitationEmail(email, code, challenge) {
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -95,7 +94,13 @@ function sendInvitationEmail(email, code, challenge) {
            <p>Challenge Name: ${challenge.name}</p>
            <p>Start Date: ${challenge.start_date}</p>
            <p>Description: ${challenge.description}</p>
-           <p>Prize Amount: ${challenge.prizeAmount}</p>`
+           <p>Prize Amount: ${challenge.prizeAmount}</p>
+          <a href="http://localhost:3001/auth-signup"
+   class="btn btn-primary" style="display:inline-block;background-color:#007bff;
+   color:#fff;padding:10px 20px;text-decoration:none;border-radius:5px;"
+   >Sign up</a>
+`
+
   };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
@@ -132,7 +137,12 @@ function sendInvitationEmail(email, code, challenge) {
            <p>Challenge Name: ${challenge.name}</p>
            <p>Start Date: ${challenge.start_date}</p>
            <p>Description: ${challenge.description}</p>
-           <p>Prize Amount: ${challenge.prizeAmount}</p>`
+           <p>Prize Amount: ${challenge.prizeAmount}</p> 
+            <p>If you don't have an account :</p> 
+           <a href="http://localhost:3001/auth-signup"
+   class="btn btn-primary" style="display:inline-block;background-color:#007bff;
+   color:#fff;padding:10px 20px;text-decoration:none;border-radius:5px;"
+   >Sign up</a>`
   };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
